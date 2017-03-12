@@ -1,0 +1,4 @@
+User : id:1 - face rapoarte,filter,add posturi/task-uri
+PowerUser: id:2 - + update/delete posturi/tasl-uri
+Admin : id:3 - + legatura post - task
+Master: id:4 - + poate creste gradul unui user

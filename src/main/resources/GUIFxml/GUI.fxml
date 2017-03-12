@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GUIController">
+   <top>
+      <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu fx:id="menuSettings" mnemonicParsing="false" text="Settings">
+            <items>
+              <MenuItem fx:id="menuItemExit" mnemonicParsing="false" onAction="#exitHandler" text="Exit" />
+                  <MenuItem fx:id="menuItemLogOut" mnemonicParsing="false" onAction="#logOutHandler" text="Log out" />
+                  <MenuItem fx:id="menuItemSaveToDb" mnemonicParsing="false" onAction="#saveToDbHandler" text="Save to DB" />
+            </items>
+          </Menu>
+          <Menu fx:id="menuEntity" mnemonicParsing="false" text="Entity">
+            <items>
+              <MenuItem fx:id="menuItemPost" mnemonicParsing="false" onAction="#setPostSceneHandler" text="Posts" />
+                  <MenuItem fx:id="menuItemTask" mnemonicParsing="false" onAction="#setTaskSceneHandler" text="Tasks" />
+            </items>
+          </Menu>
+          <Menu fx:id="menuExport" mnemonicParsing="false" text="Export">
+            <items>
+              <MenuItem fx:id="menuItemExportPDF" mnemonicParsing="false" onAction="#exportToPDFHandler" text="PDF Export" />
+                  <MenuItem fx:id="menuItemExportCSV" mnemonicParsing="false" onAction="#exportToCSVHandler" text="CSV Export" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <Pane fx:id="currentScenePane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

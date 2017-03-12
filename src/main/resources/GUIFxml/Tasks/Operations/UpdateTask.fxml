@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="185.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Tasks.GUIControllerTaskUpdate">
+    <children>
+        <TextField fx:id="textFieldType" layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="158.0" promptText="Type:" />
+        <TextField fx:id="textFieldDuration" layoutX="14.0" layoutY="54.0" prefHeight="30.0" prefWidth="158.0" promptText="Duration:" />
+      <TextField fx:id="textFieldDescription" layoutX="14.0" layoutY="97.0" prefHeight="30.0" prefWidth="158.0" promptText="Description:" />
+        <Button fx:id="buttonUpdate" layoutX="14.0" layoutY="136.0" mnemonicParsing="false" onAction="#updateButtonHandler" prefHeight="30.0" prefWidth="90.0" text="Update" />
+    </children>
+</Pane>

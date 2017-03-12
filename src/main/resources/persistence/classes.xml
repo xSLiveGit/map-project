@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id = "mapperTask" class = "utils.mapper.MapperTask" scope="singleton"/>
+    <bean id = "mapperPost" class = "utils.mapper.MapperPost" scope="singleton"/>
+    <bean id = "mapperUser" class = "utils.mapper.MapperUser" scope="singleton"/>
+    <bean id = "mapperUserRequest" class="utils.mapper.MapperUserRequest" scope="singleton"/>
+    <bean id = "mapperJobDescription" class = "utils.mapper.MapperJobDescription" scope="singleton"/>
+
+    <bean id = "ConnectionWrapper" class = "domain.ConnectionWrapper" scope="singleton"/>
+
+    <bean id = "postValidator" class = "validator.PostValidator" scope = "singleton"/>
+    <bean id = "taskValidator" class = "validator.TaskValidator" scope = "singleton"/>
+    <bean id = "jobDescriptionValidator" class = "validator.JobDescriptionValidator"  scope = "singleton"/>
+    <bean id = "userValidator" class="validator.UserValidator" scope = "singleton"/>
+    <bean id = "userRequestValidator" class="validator.UserRequestValidator" scope = "singleton"/>
+
+    <bean id = "taskDBManager" class="utils.DBManager.TaskDBManager" scope = "singleton">
+        <constructor-arg ref="ConnectionWrapper"/>
+        <constructor-arg ref="mapperTask"/>
+        <constructor-arg value = "tasks"/>
+    </bean>
+
+    <bean id = "postDBManager" class="utils.DBManager.PostDBManager" scope = "singleton">
+        <constructor-arg ref="ConnectionWrapper"/>
+        <constructor-arg ref="mapperPost"/>
+        <constructor-arg value = "posts"/>
+    </bean>
+
+    <bean id = "userDBManager" class="utils.DBManager.UserDbManager" scope = "singleton">
+        <constructor-arg ref="ConnectionWrapper"/>
+        <constructor-arg ref="mapperUser"/>
+        <constructor-arg value = "users"/>
+    </bean>
+
+    <bean id = "userRequestDBManager" class="utils.DBManager.UserRequestDBManager" scope = "singleton">
+        <constructor-arg ref="ConnectionWrapper"/>
+        <constructor-arg ref="mapperUserRequest"/>
+        <constructor-arg value = "usersrequests"/>
+    </bean>
+
+
+    <bean id = "jobDescriptionDBManager" class="utils.DBManager.JobDescriptionDBManager" scope = "singleton">
+        <constructor-arg ref="ConnectionWrapper"/>
+        <constructor-arg ref="mapperJobDescription"/>
+        <constructor-arg value = "jobdescriptions"/>
+    </bean>
+
+    <bean id = "taskRepository" class = "repository.DBRepository" scope = "singleton">
+        <constructor-arg ref="ConnectionWrapper"/>
+        <constructor-arg ref="taskValidator"/>
+        <constructor-arg ref = "mapperTask"/>
+        <constructor-arg ref = "taskDBManager"/>
+        <constructor-arg value = "15"/>
+    </bean>
+
+    <bean id = "postRepository" class = "repository.DBRepository" scope = "singleton">
+        <constructor-arg ref="ConnectionWrapper"/>
+        <constructor-arg ref="postValidator"/>
+        <constructor-arg ref = "mapperPost"/>
+        <constructor-arg ref = "postDBManager"/>
+        <constructor-arg value = "15"/>
+    </bean>
+
+    <bean id = "jobDescriptionRepository" class = "repository.DBRepository" scope = "singleton">
+        <constructor-arg ref="ConnectionWrapper"/>
+        <constructor-arg ref="jobDescriptionValidator"/>
+        <constructor-arg ref = "mapperJobDescription"/>
+        <constructor-arg ref = "jobDescriptionDBManager"/>
+        <constructor-arg value = "15"/>
+    </bean>
+
+    <bean id = "userRepository" class = "repository.DBRepository" scope = "singleton">
+        <constructor-arg ref="ConnectionWrapper"/>
+        <constructor-arg ref="userValidator"/>
+        <constructor-arg ref = "mapperUser"/>
+        <constructor-arg ref = "userDBManager"/>
+        <constructor-arg value = "15"/>
+    </bean>
+
+    <bean id = "userRequestRepository" class = "repository.DBRepository" scope = "singleton">
+        <constructor-arg ref="ConnectionWrapper"/>
+        <constructor-arg ref="userRequestValidator"/>
+        <constructor-arg ref = "mapperUserRequest"/>
+        <constructor-arg ref = "userRequestDBManager"/>
+        <constructor-arg value = "15"/>
+    </bean>
+
+    <bean id = "PostController" class="Controller.PostController" scope = "singleton">
+        <constructor-arg ref = "postRepository"/>
+    </bean>
+
+    <bean id = "TaskController" class="Controller.TaskController" scope = "singleton">
+        <constructor-arg ref = "taskRepository"/>
+    </bean>
+
+    <bean id = "JobDescriptionController" class = "Controller.JobDescriptionController" scope="singleton">
+        <constructor-arg ref = "jobDescriptionRepository"/>
+        <constructor-arg ref = "postRepository"/>
+        <constructor-arg ref = "taskRepository"/>
+    </bean>
+
+    <bean id = "UserController" class = "Controller.UserController" scope = "singleton">
+        <constructor-arg ref="userRepository"/>
+    </bean>
+
+    <bean id = "UserRequestController" class = "Controller.UserRequestController" scope = "singleton">
+        <constructor-arg ref="userRequestRepository"/>
+    </bean>
+
+</beans>

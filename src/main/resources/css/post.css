@@ -1,0 +1,101 @@
+.button{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 3 6 6 6;
+    -fx-background-radius: 5em;
+    -fx-background-color: #034f84;
+}
+
+.combo-box
+{
+    -fx-background-radius: 5em;
+}
+
+.combo-box-base:hover
+{
+    -fx-color: #034f84;
+}
+
+.combo-box-popup .list-view
+{
+    -fx-background-color: #034f84, #034f84;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(1,0,0,0.6) , 8, 0.0 , 0 , 0 );
+}
+
+.combo-box-popup .list-view .list-cell
+{
+    -fx-padding: 4 0 4 5;
+    -fx-background-color: white;
+}
+
+.combo-box-popup .list-view .list-cell:filled:hover
+{
+    -fx-background-color: #034f84;
+    -fx-text-fill: -fx-text-inner-color;
+}
+
+
+.combo-box .list-cell
+{
+    -fx-text-fill:#404040;
+    -fx-font-weight: bold;
+}
+
+
+/*table*/
+/* Selected row */
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: #034f84;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background: -fx-accent;
+    -fx-text-fill: -fx-selection-bar-text;
+}
+
+/* Selected row when table not focused */
+.table-row-cell:filled:focused:selected {
+    -fx-background-color: #034f84;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background: -fx-accent;
+    -fx-text-fill: -fx-selection-bar-text;
+}
+
+/* Row hovered */
+.table-view:row-selection .table-row-cell:filled:hover {
+    -fx-background-color: #034f84;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-text-fill: -fx-text-inner-color;
+}
+
+/* Selected row hovered */
+.table-view:focused .table-row-cell:filled:focused:selected:hover {
+    -fx-background: -fx-accent;
+    -fx-background-color: #034f84;
+    -fx-background-insets: 0, 1, 2;
+    -fx-text-fill: -fx-selection-bar-text;
+}
+
+/* Selected row hovered when table not focused */
+.table-view:row-selection .table-row-cell:filled:focused:hover {
+    -fx-background-color: #034f84;
+    -fx-background-insets: 0, 0 0 1 0, 1 1 2 1, 2 2 3 2, 3 3 4 3;
+    -fx-text-fill: -fx-text-inner-color;
+}
+
+
+/*                  Menu                */
+
+.context-menu:focused {
+    -fx-background-color:white;
+    -fx-focus-color:#034f84;
+}
+
+.menu-item:focused {
+    -fx-background-color:#034f84;
+    -fx-focus-color:#034f84;
+}
+
+.menu:focused {
+    -fx-background-color:#034f84;
+    -fx-focus-color:#034f84;
+}
